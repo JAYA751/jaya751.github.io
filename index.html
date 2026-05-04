@@ -72,11 +72,11 @@
             <div id="pengeluaran" class="tab-content">
                 <div class="form-group">
                     <label>Kategori Pengeluaran</label>
-                    <div style="position: relative;">
-                        <select id="kategoriPengeluaran" style="width: 100%; padding-right: 40px;">
+                    <div style="display: flex; gap: 5px;">
+                        <select id="kategoriPengeluaran" style="flex-grow: 1; padding: 10px; border-radius: 8px;">
                             <option value="">Pilih kategori...</option>
                         </select>
-                        <button id="tambahKategoriBtn" class="btn-add-kategori" title="Tambah kategori baru">+</button>
+                        <button id="tambahKategoriBtn" class="btn-add-kategori" title="Tambah kategori baru" style="padding: 0 15px; border-radius: 8px; cursor: pointer;">+</button>
                     </div>
                 </div>
                 <div class="form-group">
@@ -101,7 +101,7 @@
         </section>
     </div>
 
-    <!-- !-- Modal Tambah Kategori (TAMBAHKAN SEBELUM </body>)  -->
+    <!-- Modal Tambah Kategori -->
     <div id="modalTambahKategori" class="modal">
         <div class="modal-content">
             <h3>➕ Tambah Kategori Pengeluaran Baru</h3>
@@ -112,12 +112,12 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
-    <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database-compat.js"></script>
 
-<!-- File script Anda -->
-<script src="script.js"></script>
+    <!-- === FIREBASE SDK (PENTING: Harus di atas script.js) === -->
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database-compat.js"></script>
+
+    <!-- === LOGIKA WEBSITE ANDA === -->
+    <script src="script.js"></script>
 </body>
 </html>
