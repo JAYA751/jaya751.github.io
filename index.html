@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kas Dagang Bawang Daun</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>💰 Kas Dagang Bawang Daun</h1>
+            <p>Hari ini: <span id="tanggal"></span></p>
+        </header>
+
+        <!-- Ringkasan Hari Ini -->
+        <section class="summary">
+            <div class="card">
+                <h3>🛒 Modal Hari Ini</h3>
+                <div class="amount" id="modalHariIni">Rp 0</div>
+            </div>
+            <div class="card">
+                <h3>💰 Pendapatan</h3>
+                <div class="amount income" id="pendapatanHariIni">Rp 0</div>
+            </div>
+            <div class="card">
+                <h3>📤 Pengeluaran</h3>
+                <div class="amount expense" id="pengeluaranHariIni">Rp 0</div>
+            </div>
+            <div class="card profit">
+                <h3>✅ Laba Bersih</h3>
+                <div class="amount profit" id="labaHariIni">Rp 0</div>
+            </div>
+        </section>
+
+        <!-- Form Input Transaksi -->
+        <section class="input-section">
+            <h2>📝 Catat Transaksi</h2>
+            
+            <!-- Tab -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('pembelian')">Pembelian</button>
+                <button class="tab-btn" onclick="showTab('penjualan')">Penjualan</button>
+                <button class="tab-btn" onclick="showTab('pengeluaran')">Pengeluaran</button>
+            </div>
+
+            <!-- Pembelian -->
+            <div id="pembelian" class="tab-content active">
+                <div class="form-group">
+                    <label>Berat (kg)</label>
+                    <input type="number" id="berat" placeholder="8" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Harga/kg</label>
+                    <input type="number" id="hargaKg" placeholder="16000">
+                </div>
+                <button class="btn btn-primary" onclick="tambahPembelian()">+ Tambah Pembelian</button>
+            </div>
+
+            <!-- Penjualan -->
+            <div id="penjualan" class="tab-content">
+                <div class="form-group">
+                    <label>Total Pendapatan</label>
+                    <input type="number" id="pendapatan" placeholder="240000">
+                </div>
+                <button class="btn btn-success" onclick="tambahPenjualan()">+ Catat Penjualan</button>
+            </div>
+
+            <!-- Pengeluaran -->
+            <div id="pengeluaran" class="tab-content">
+                <div class="form-group">
+                    <label>Kategori Pengeluaran</label>
+                    <div style="position: relative;">
+                        <select id="kategoriPengeluaran" style="width: 100%; padding-right: 40px;">
+                            <option value="">Pilih kategori...</option>
+                        </select>
+                        <button id="tambahKategoriBtn" class="btn-add-kategori" title="Tambah kategori baru">+</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Jumlah</label>
+                    <input type="number" id="jumlahPengeluaran" placeholder="15000">
+                </div>
+                <button class="btn btn-warning" onclick="tambahPengeluaran()">+ Tambah Pengeluaran</button>
+            </div>
+        </section>
+
+        <!-- Riwayat Hari Ini -->
+        <section class="history">
+            <h2>📋 Riwayat Hari Ini</h2>
+            <div id="riwayatList"></div>
+            <button class="btn btn-danger" onclick="hapusSemuaHariIni()" style="margin-top: 1rem;">🗑️ Hapus Semua Hari Ini</button>
+        </section>
+
+        <!-- Riwayat Minggu Ini -->
+        <section class="weekly">
+            <h2>📊 Ringkasan 7 Hari Terakhir</h2>
+            <div id="weeklySummary"></div>
+        </section>
+    </div>
+
+    <!-- !-- Modal Tambah Kategori (TAMBAHKAN SEBELUM </body>)  -->
+    <div id="modalTambahKategori" class="modal">
+        <div class="modal-content">
+            <h3>➕ Tambah Kategori Pengeluaran Baru</h3>
+            <input type="text" id="kategoriBaru" placeholder="Contoh: Parkir Motor">
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn btn-primary" onclick="simpanKategoriBaru()">Simpan</button>
+                <button class="btn btn-secondary" onclick="tutupModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
